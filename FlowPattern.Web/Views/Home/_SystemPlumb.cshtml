@@ -1,0 +1,30 @@
+﻿@using FlowPattern.Web.Models;
+@model IEnumerable<ItemViewModel>
+@{
+    var size = 10;
+}
+<main>
+
+    @for (int y = 0; y < size; y++)
+    {
+        <section class="item_row">
+
+            @for (int x = 0; x < size; x++)
+            {
+                var item = Model.FirstOrDefault(m => m.X == x && m.Y == y);
+
+                <section class="item_cell" data-x="@x" data-y="@y">
+
+                    @if (item != null)
+                    {
+                        <div data-system-part id="@item.Id" class="item @item.MainCssClass @item.ActiveCssClass @item.ActivatedCssClass">
+                          
+                        </div>
+                    }
+                    
+                </section>
+            }
+        </section>
+    }
+
+</main>

@@ -1,0 +1,32 @@
+﻿@using FlowPattern.Web.Models;
+@model IEnumerable<ItemViewModel>
+@{
+    Layout = "~/Views/Shared/_LayoutBlank.cshtml";
+}
+<link href="~/Content/plumb.css" rel="stylesheet" />
+
+<div id="container">
+
+    @Html.Partial("_SystemPlumb", Model)
+
+</div>
+
+<script>
+
+
+    var flow = new CyberzennoFlow({
+
+        executeActionUrl: "@Url.Action("Execute")"
+    })
+
+    var plumb = new CyberzennoPlumb();
+
+    $(document).ready(function () {
+          
+        flow.init();
+        plumb.init();
+
+    })
+
+
+</script>

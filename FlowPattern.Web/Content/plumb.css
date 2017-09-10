@@ -1,0 +1,192 @@
+﻿
+/*MAIN SETTINGS*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body, #container {
+    height: 100%;
+}
+
+main {
+    height: 100%;
+}
+
+/*BOARD ITEM*/
+.item_row {
+    height: calc(100%/10);
+}
+
+.item_cell {
+    float: left;
+    width: calc(100%/10);
+    height: 100%;
+    border: 1px solid lightgray;
+}
+
+    .item_cell.selected {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        border: 3px dashed red;
+    }
+
+
+
+/*JS PLUMB ITEM*/
+.item {
+    position: absolute;
+    height: 80px;
+    width: 80px;
+}
+
+/*FLOW ELEMENTS*/
+.generator, .switch, .bulb, .music, .fan, .agregator {
+    height: 80px;
+    width: 100px;
+    text-align: center;
+    font-family: 'Glyphicons Halflings';
+    font-size: 30px;
+    cursor: pointer;
+    border: 3px solid #888888;
+    background: lightgray;
+    /* Border radius for Chrome, Webkit and other good browsers */
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -border-radius: 10px;
+    border-radius: 10px;
+}
+
+    .generator.active.activated {
+        background: #f2dede;
+        border-color: #a94442;
+        color: #a94442;
+    }
+
+    .bulb.activated, .music.activated, .fan.activated {
+        background: #fcf8e3;
+        border-color: #8a6d3b;
+    }
+
+        .bulb.activated.active, .music.activated.active, .fan.activated.active {
+            background: #dff0d8;
+            border-color: #3c763d;
+        }
+
+
+.active {
+    color: green;
+}
+
+.activated {
+    color: orange;
+}
+
+.active.activated {
+    color: green;
+}
+
+/*AFTER STUFF*/
+#container ::after {
+    position: absolute;
+    top: 45px;
+    font-family: arial;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/*GENERATOR*/
+.generator:after {
+    content: "Generator";
+    left: 12px;
+}
+
+.generator:before {
+    content: "\e017";
+}
+
+
+/*SWITCH*/
+.switch:after {
+    content: "Switch";
+    left: 22px;
+}
+
+.switch:before {
+    content: "\e088";
+}
+
+.switch.activated:before {
+    content: "\e089";
+}
+
+.switch.active.activated:before {
+    content: "\e084";
+}
+
+/*AGREGATOR*/
+.agregator:after {
+    content: "Agregator";
+    left: 13px;
+}
+.agregator:before {
+    content: "\2a";
+}
+
+
+
+/*FAN*/
+.fan:after {
+    content: "Fan";
+    left: 32px;
+}
+
+.fan:before {
+    content: "\e090";
+}
+
+.fan.activated:before {
+    content: "\e090";
+}
+
+.fan.active:before {
+    content: "\e031";
+}
+
+/*MUSIC*/
+.music:after {
+    content: "Music";
+    left: 32px;
+}
+
+.music:before {
+    content: "\e036";
+}
+
+.music.activated:before {
+    content: "\e036";
+}
+
+.music.active:before {
+    content: "\e038";
+}
+
+
+/*BULB*/
+.bulb:after {
+    content: "Light";
+    left: 32px;
+}
+
+.bulb:before {
+    content: "\e007";
+}
+
+.bulb.activated:before {
+    content: "\e007";
+}
+
+.bulb.active:before {
+    content: "\e006";
+}
