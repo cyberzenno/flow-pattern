@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlowPattern.Data", "FlowPat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlowPattern.Web", "FlowPattern.Web\FlowPattern.Web.csproj", "{31E8772D-5BD7-4816-8C11-E30FF1F052A1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlowPattern.UnitTests", "FlowPattern.UnitTests\FlowPattern.UnitTests.csproj", "{BE3B9FC4-8F0C-49B6-96D7-1BC01BDB20F3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{31E8772D-5BD7-4816-8C11-E30FF1F052A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31E8772D-5BD7-4816-8C11-E30FF1F052A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31E8772D-5BD7-4816-8C11-E30FF1F052A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE3B9FC4-8F0C-49B6-96D7-1BC01BDB20F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE3B9FC4-8F0C-49B6-96D7-1BC01BDB20F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE3B9FC4-8F0C-49B6-96D7-1BC01BDB20F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE3B9FC4-8F0C-49B6-96D7-1BC01BDB20F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

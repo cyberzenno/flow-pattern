@@ -8,20 +8,25 @@ namespace FlowPattern.Data.SystemParts
 {
     public enum PartType
     {
-        Generator
+        Generator,
+
+        Unknown = 0
     }
 
     public enum PartState
     {
-        Activated
+        NotActive,
+        Active,
+
+        Unknown = 0
     }
 
     public abstract class ASystemPart
     {
         //Properties
         public string Id { get; set; }
-        public PartType Type { get; set; }
-        public PartState State { get; set; }
+        public PartType SystemPartType { get; set; }
+        public PartState SystemPartState { get; set; }
 
         public ASystemPart[] Input { get; set; }
         public ASystemPart[] Output { get; set; }
@@ -34,8 +39,16 @@ namespace FlowPattern.Data.SystemParts
         {
             get
             {
-                return State == PartState.Activated;
+                return SystemPartState == PartState.Active;
             }
+        }
+        public bool Is(PartType type)
+        {
+            return SystemPartType == type;
+        }
+        public bool Is(PartState state)
+        {
+            return SystemPartState == state;
         }
     }
 
