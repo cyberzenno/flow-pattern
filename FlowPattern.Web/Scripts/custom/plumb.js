@@ -5,14 +5,14 @@
 
     //setup jsplumb
     var connnections = [
-        { s: "generator0", t: "switchA" },
-        { s: "switchA", t: "bulbA" },
+        { s: "generator_0", t: "switch_0" },
+        { s: "switch_0", t: "bulb_0" },
      
     ];
     var draggables = [
-                        "generator0",
-                        "switchA",
-                        "bulbA",
+                        "generator_0",
+                        "switch_0",
+                        "bulb_0",
                      ];
 
     var common = {

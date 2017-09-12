@@ -1,4 +1,6 @@
-﻿using FlowPattern.Web.Models;
+﻿using FlowPattern.Data.SystemParts;
+using FlowPattern.Data.SystemParts.Factories;
+using FlowPattern.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,38 +14,25 @@ namespace FlowPattern.Web.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            var generator = new ItemViewModel
+            var system = CreateSystem().Select(x => x.ToItemViewModel()).ToArray();
+
+            for (int i = 0; i < system.Count(); i++)
             {
-                Id = "generator0",
-                MainCssClass = "generator",
-                ActivatedCssClass = "activated",
-                ActiveCssClass = "active",
-                X = 3,
-                Y = 3,
-            };
+                system[i].XY(i*2, 5);                
+            }
 
-            var switchA = new ItemViewModel
-            {
-                Id = "switchA",
-                MainCssClass = "switch",
-                ActivatedCssClass = "activated",
-                ActiveCssClass = "active",
-                X = 5,
-                Y = 5,
-            };
+            return View(system);
+        }
 
-            var bulb = new ItemViewModel
-            {
-                Id = "bulbA",
-                MainCssClass = "bulb",
-                ActivatedCssClass = "activated",
-                ActiveCssClass = "active",
-                X = 7,
-                Y = 7,
-            };
+        private IList<ASystemPart> CreateSystem()
+        {
+            var factory = new SystemPartFactory();
 
+            var generator = factory.Create("generator_0_activated");
+            var switchA = factory.Create("switch_0_activated");
+            var bulb = factory.Create("bulb_0_activated");
 
-            return View(new[] { generator, switchA, bulb });
+            return new List<ASystemPart> { generator, switchA, bulb };
         }
     }
 }

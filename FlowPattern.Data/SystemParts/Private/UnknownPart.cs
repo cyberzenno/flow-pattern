@@ -12,12 +12,17 @@ namespace FlowPattern.Data.SystemParts.Private
         {
             Id = "Unknown";
             SystemPartType = PartType.Unknown;
-            SystemPartState = PartState.Unknown;   
+            SystemPartState = PartState.Unknown;
         }
 
         public override AFlow Flow
         {
-            get { return new NullFlow(); }
+            get { return null; }
+        }
+
+        public override bool IsActive
+        {
+            get { return false; }
         }
     }
 }

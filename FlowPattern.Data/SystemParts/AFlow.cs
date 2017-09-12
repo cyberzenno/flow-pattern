@@ -7,6 +7,6 @@ using System.Threading.Tasks;
 namespace FlowPattern.Data.SystemParts
 {
     public abstract class AFlow
-    {
+    {        
     }
 }

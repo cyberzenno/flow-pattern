@@ -21,13 +21,20 @@ namespace FlowPattern.UnitTests
         }
 
         [Test]
-        [TestCase("0_generator_active", "0", PartType.Generator, PartState.Active)]
+        [TestCase("foo_0_bar", "Unknown", PartType.Unknown, PartState.Unknown)]
+        [TestCase("generator_0", "0", PartType.Generator, PartState.NotActivated)]
+        [TestCase("generator_0_activated", "0", PartType.Generator, PartState.Activated)]
+        [TestCase("generator_0_notactivated", "0", PartType.Generator, PartState.NotActivated)]
+        [TestCase("SWITCH_0_ACTIVATED", "0", PartType.Switch, PartState.Activated)]
+        [TestCase("SWITCH_0_NOTACTIVATED", "0", PartType.Switch, PartState.NotActivated)]
+        [TestCase("bulb_0_activated", "0", PartType.Bulb, PartState.Activated)]
+        [TestCase("bulb_0_notactivated", "0", PartType.Bulb, PartState.NotActivated)]
         public void Create(string input, string expId, PartType expType, PartState expState)
         {
             //ARRANGE
 
             //ACT
-            var actual = systemPartFactory.Create("generator_0_active");
+            var actual = systemPartFactory.Create(input);
 
             //ASSERT
             Assert.AreEqual(expId, actual.Id);

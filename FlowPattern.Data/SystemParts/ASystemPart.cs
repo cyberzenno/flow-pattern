@@ -8,17 +8,19 @@ namespace FlowPattern.Data.SystemParts
 {
     public enum PartType
     {
-        Generator,
+        Unknown = 0,
 
-        Unknown = 0
+        Generator,
+        Switch,
+        Bulb
     }
 
     public enum PartState
     {
-        NotActive,
-        Active,
+        Unknown = 0,
 
-        Unknown = 0
+        NotActivated,
+        Activated
     }
 
     public abstract class ASystemPart
@@ -28,28 +30,35 @@ namespace FlowPattern.Data.SystemParts
         public PartType SystemPartType { get; set; }
         public PartState SystemPartState { get; set; }
 
-        public ASystemPart[] Input { get; set; }
-        public ASystemPart[] Output { get; set; }
+        public IList<ASystemPart> Input { get; set; }
+        public IList<ASystemPart> Output { get; set; }
 
         //Abstract Properties
         public abstract AFlow Flow { get; }
+
+        //Constructor
+        public ASystemPart()
+        {
+            Input = new List<ASystemPart>();
+            Output = new List<ASystemPart>();
+        }
+
+        //Actions
+        public void Activate()
+        {
+            SystemPartState = PartState.Activated;
+        }
 
         //Queries
         public bool IsActivated
         {
             get
             {
-                return SystemPartState == PartState.Active;
+                return SystemPartState == PartState.Activated;
             }
         }
-        public bool Is(PartType type)
-        {
-            return SystemPartType == type;
-        }
-        public bool Is(PartState state)
-        {
-            return SystemPartState == state;
-        }
-    }
 
+        //Abstracts
+        public abstract bool IsActive { get; }
+    }
 }

@@ -13,12 +13,13 @@ namespace FlowPattern.Data.SystemParts.Private
         {
             get
             {
-                AFlow flow = new NullFlow();
-
-                if (IsActivated) flow = new Flow();
-
-                return flow;
+                return IsActivated ? new Flow() : null;
             }
+        }
+
+        public override bool IsActive
+        {
+            get { return IsActivated; }
         }
     }
 }

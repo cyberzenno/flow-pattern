@@ -41,6 +41,8 @@
   <ItemGroup>
     <Compile Include="SystemParts\Factories\ISystemPartFactory.cs" />
     <Compile Include="SystemParts\Private\Flow.cs" />
+    <Compile Include="SystemParts\Private\Bulb.cs" />
+    <Compile Include="SystemParts\Private\Switch.cs" />
     <Compile Include="SystemParts\Private\Generator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SystemParts\AFlow.cs" />

@@ -20,13 +20,21 @@ namespace FlowPattern.Data.SystemParts.Factories
             var args = type_id_state.Split('_');
             var type = args[0];
             var id = args[1];
-            var state = args[2];
+            var state = args.Length > 2 ? args[2] : "";
 
             //parse
             PartType partType;
-            PartState partState;
             Enum.TryParse<PartType>(type, true, out  partType);
-            Enum.TryParse<PartState>(state, true, out  partState);
+
+            PartState partState;
+            if (state != "")
+            {
+                Enum.TryParse<PartState>(state, true, out  partState);
+            }
+            else
+            {
+                partState = PartState.NotActivated;
+            }
 
             //create
             ASystemPart result = Create(id, partType, partState);
@@ -50,6 +58,29 @@ namespace FlowPattern.Data.SystemParts.Factories
                     };
 
                     break;
+
+                case PartType.Switch:
+
+                    result = new Switch
+                    {
+                        Id = id,
+                        SystemPartType = type,
+                        SystemPartState = state
+                    };
+
+                    break;
+
+                case PartType.Bulb:
+
+                    result = new Bulb
+                    {
+                        Id = id,
+                        SystemPartType = type,
+                        SystemPartState = state
+                    };
+
+                    break;
+
             }
 
             return result;

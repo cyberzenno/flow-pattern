@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FlowPattern.Data.SystemParts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,6 +18,21 @@ namespace FlowPattern.Web.Models
         public void XY(int x, int y)
         {
             X = x; Y = y;
+        }
+    }
+
+    public static class ItemsExtensions
+    {
+        public static ItemViewModel ToItemViewModel(this ASystemPart part)
+        {
+            var type = part.SystemPartType.ToString().ToLower();
+            var viewModel = new ItemViewModel();
+            viewModel.Id = type + "_" + part.Id;
+            viewModel.MainCssClass = type;
+            viewModel.ActiveCssClass = part.IsActive ? "active" : "";
+            viewModel.ActivatedCssClass = part.IsActivated ? "activated" : "";
+
+            return viewModel;
         }
     }
 }
