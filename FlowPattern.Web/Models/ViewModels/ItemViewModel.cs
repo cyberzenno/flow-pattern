@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace FlowPattern.Web.Models
+namespace FlowPattern.Web.Models.ViewModels
 {
     public class ItemViewModel
     {
@@ -14,25 +14,45 @@ namespace FlowPattern.Web.Models
         public string ActivatedCssClass { get; set; }
         public int X { get; set; }
         public int Y { get; set; }
-
         public void XY(int x, int y)
         {
             X = x; Y = y;
         }
+
+        public string OutputConnections { get; set; }
     }
 
     public static class ItemsExtensions
     {
         public static ItemViewModel ToItemViewModel(this ASystemPart part)
         {
-            var type = part.SystemPartType.ToString().ToLower();
             var viewModel = new ItemViewModel();
-            viewModel.Id = type + "_" + part.Id;
-            viewModel.MainCssClass = type;
+            viewModel.Id = part.GetViewId();
+            viewModel.MainCssClass = part.GetViewPartType();
             viewModel.ActiveCssClass = part.IsActive ? "active" : "";
             viewModel.ActivatedCssClass = part.IsActivated ? "activated" : "";
 
+            viewModel.OutputConnections = "";
+
+            foreach (var item in part.Output)
+            {
+                viewModel.OutputConnections += part.GetViewId() + " ";
+            }
+
+
             return viewModel;
         }
+
+        public static string GetViewPartType(this ASystemPart part)
+        {
+            return part.SystemPartType.ToString().ToLower();
+        }
+
+        public static string GetViewId(this ASystemPart part)
+        {
+            return part.GetViewPartType() + "_" + part.Id;
+        }
+
+
     }
 }

@@ -1,4 +1,4 @@
-﻿@using FlowPattern.Web.Models;
+﻿@using FlowPattern.Web.Models.ViewModels;
 @model IEnumerable<ItemViewModel>
 @{
     var size = 10;
@@ -17,11 +17,11 @@
 
                     @if (item != null)
                     {
-                        <div data-system-part id="@item.Id" class="item @item.MainCssClass @item.ActiveCssClass @item.ActivatedCssClass">
-                          
+                        <div data-system-part data-output="@item.OutputConnections" id="@item.Id" class="item @item.MainCssClass @item.ActiveCssClass @item.ActivatedCssClass">
+
                         </div>
                     }
-                    
+
                 </section>
             }
         </section>
