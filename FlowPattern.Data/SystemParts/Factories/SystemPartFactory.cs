@@ -17,7 +17,7 @@ namespace FlowPattern.Data.SystemParts.Factories
             //split
             var args = type_id.Split('_');
             var type = args[0];
-            var id = args[1];
+            var id = type_id;
 
             //parse
             PartType partType;

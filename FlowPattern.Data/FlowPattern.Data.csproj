@@ -49,8 +49,8 @@
     <Compile Include="SystemParts\AFlow.cs" />
     <Compile Include="SystemParts\ASystemPart.cs" />
     <Compile Include="SystemParts\Private\UnknownPart.cs" />
-    <Compile Include="System\ISystemBuilder.cs" />
-    <Compile Include="System\ISystemPersistanceProvider.cs" />
+    <Compile Include="System\Builders\SystemBuilder.cs" />
+    <Compile Include="System\Persistence\ISystemPersistenceProvider.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

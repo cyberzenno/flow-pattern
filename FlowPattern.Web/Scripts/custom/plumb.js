@@ -2,11 +2,9 @@
 
     var allSystemParts = $("[data-system-part]");
 
-   
-    var connnections = getConnectionsFromPartsAttributes();
+    var connections = getConnectionsFromPartsAttributes();
 
-    //js plumb settings
-    var common = {
+    var jsPlumbSettings = {
         anchor: ["Left", "Right"],
         endpoint: "Dot",
         paintStyle: { stroke: "gray", strokeWidth: 3 },
@@ -22,11 +20,14 @@
         for (var i = 0; i < allSystemParts.length; i++) {
 
             var part = allSystemParts[i];
-            var outputs = part.dataset.output.split(" ");
+            var outputs = part.dataset.output.match(/[^ ]+/g);
 
-            for (var j = 0; j < outputs; j++) {
-                conn.push({ s: part.id, t: outputs[j] });
+            if (outputs) {
+                for (var j = 0; j < outputs.length; j++) {
+                    conn.push({ s: part.id, t: outputs[j] });
+                }
             }
+
         }
 
         return conn;
@@ -37,15 +38,14 @@
 
         init: function () {
 
-
             jsPlumb.ready(function () {
 
-                for (var i = 0; i < connnections.length; i++) {
+                for (var i = 0; i < connections.length; i++) {
 
                     jsPlumb.connect({
-                        source: connnections[i].s,
-                        target: connnections[i].t,
-                    }, common);
+                        source: connections[i].s,
+                        target: connections[i].t,
+                    }, jsPlumbSettings);
                 }
 
                 for (var i = 0; i < allSystemParts.length; i++) {
@@ -53,7 +53,6 @@
                 }
 
             });
-
 
         }
 

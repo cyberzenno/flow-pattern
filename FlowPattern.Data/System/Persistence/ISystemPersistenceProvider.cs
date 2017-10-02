@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlowPattern.Data.System
+namespace FlowPattern.Data.System.Persistence
 {
     public interface ISystemPersitanceProvider
     {

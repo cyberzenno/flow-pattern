@@ -9,6 +9,6 @@ namespace FlowPattern.Data.SystemParts.Factories
 {
     public interface ISystemPartFactory
     {
-        ASystemPart Create(string type_id_state);
+        ASystemPart Create(string type_id);
     }
 }

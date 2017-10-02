@@ -27,16 +27,16 @@ namespace FlowPattern.Web.Models.ViewModels
         public static ItemViewModel ToItemViewModel(this ASystemPart part)
         {
             var viewModel = new ItemViewModel();
-            viewModel.Id = part.GetViewId();
+            viewModel.Id = part.Id;
             viewModel.MainCssClass = part.GetViewPartType();
             viewModel.ActiveCssClass = part.IsActive ? "active" : "";
             viewModel.ActivatedCssClass = part.IsActivated ? "activated" : "";
 
             viewModel.OutputConnections = "";
 
-            foreach (var item in part.Output)
+            foreach (var outputPart in part.Output)
             {
-                viewModel.OutputConnections += part.GetViewId() + " ";
+                viewModel.OutputConnections += outputPart.Id + " ";
             }
 
 
@@ -47,12 +47,5 @@ namespace FlowPattern.Web.Models.ViewModels
         {
             return part.SystemPartType.ToString().ToLower();
         }
-
-        public static string GetViewId(this ASystemPart part)
-        {
-            return part.GetViewPartType() + "_" + part.Id;
-        }
-
-
     }
 }

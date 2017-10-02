@@ -1,4 +1,5 @@
-﻿using FlowPattern.Data.SystemParts;
+﻿using FlowPattern.Data.System.Builders;
+using FlowPattern.Data.SystemParts;
 using FlowPattern.Data.SystemParts.Factories;
 using FlowPattern.Web.Models.ViewModels;
 using System;
@@ -38,22 +39,28 @@ namespace FlowPattern.Web.Controllers
             //generator_0 > switch_0
             //switch_0 > switch_1
             //switch_1 > bulb_0
-    
+
             //set state
             //generator_0 activated
             //switch_0 activated
             //switch_1 activated
             //bulb_0 activated
 
-
-
             var factory = new SystemPartFactory();
+            var builder = new SystemBuilder(factory);
 
-            var generator = factory.Create("generator_0_activated");
-            var switchA = factory.Create("switch_0_activated");
-            var bulb = factory.Create("bulb_0_activated");
+            var g = "generator_0";
+            var s = "switch_0";
+            var b = "bulb_0";
 
-            return new List<ASystemPart> { generator, switchA, bulb };
+            builder.AddPart(g);
+            builder.AddPart(s);
+            builder.AddPart(b);
+
+            builder.ConnectParts(g + ">" + s);
+            builder.ConnectParts(s + ">" + b);
+
+            return builder.SystemParts;
         }
     }
 }
