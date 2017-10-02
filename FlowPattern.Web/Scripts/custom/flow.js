@@ -1,7 +1,7 @@
 ﻿CyberzennoFlow = function (settings) {
 
     function bindClick() {
-        $("[data-system-part]").click(function (e) {
+        $("[data-system-part]").contextmenu(function (e) {
             console.log(e.currentTarget.id)
             $.ajax({
 
@@ -33,6 +33,26 @@
         });
     }
 
+    function updateConnectors() {
+        var allSystemParts = $("[data-system-part]");
+
+        for (var i = 0; i < allSystemParts.length; i++) {
+
+            var part = allSystemParts[i];
+            var outputs = part.dataset.output.match(/[^ ]+/g);
+
+            if (outputs) {
+                for (var j = 0; j < outputs.length; j++) {
+
+                    var color = part.ActiveCssClass == "active" && part.ActivatedCssClass == "activated" ? "green" : "gray";
+                    updateConnector(part.id, outputs[j], color)
+   
+                }
+            }
+
+        }
+    }
+
     function updateConnector(tId, sId, color) {
 
         jsPlumb.select({ source: tId }).setPaintStyle({ stroke: color });
@@ -44,6 +64,7 @@
     return {
         init: function () {
 
+            updateConnectors();
             bindClick();
         }
     }

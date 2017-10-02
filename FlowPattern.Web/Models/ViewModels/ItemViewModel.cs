@@ -28,6 +28,8 @@ namespace FlowPattern.Web.Models.ViewModels
         {
             var viewModel = new ItemViewModel();
             viewModel.Id = part.Id;
+            viewModel.X = part.X;
+            viewModel.Y = part.Y;
             viewModel.MainCssClass = part.GetViewPartType();
             viewModel.ActiveCssClass = part.IsActive ? "active" : "";
             viewModel.ActivatedCssClass = part.IsActivated ? "activated" : "";

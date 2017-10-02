@@ -26,6 +26,18 @@ namespace FlowPattern.Data.System.Builders
             SystemParts.Add(part);
         }
 
+        public void AddPart(string type_id, string x_y)
+        {
+            var part = SystemPartFactory.Create(type_id);
+
+            var args = x_y.Split('_');
+
+            part.X = int.Parse(args[0]);
+            part.Y = int.Parse(args[1]);
+
+            SystemParts.Add(part);
+        }
+
         public void ConnectParts(string sourceIdGtTargetId)
         {
             var split = sourceIdGtTargetId.Split('>');

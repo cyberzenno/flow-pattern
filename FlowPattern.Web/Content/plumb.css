@@ -42,7 +42,13 @@ main {
 }
 
 /*FLOW ELEMENTS*/
-.generator, .switch, .bulb, .music, .fan, .agregator {
+.generator,
+.switch,
+.bulb,
+.music,
+.fan,
+.agregator,
+.dummy {
     height: 80px;
     width: 100px;
     text-align: center;
@@ -64,16 +70,23 @@ main {
         color: #a94442;
     }
 
-    .bulb.activated, .music.activated, .fan.activated {
+    .bulb.activated,
+    .music.activated,
+    .fan.activated {
         background: #fcf8e3;
         border-color: #8a6d3b;
     }
 
-        .bulb.activated.active, .music.activated.active, .fan.activated.active {
+        .bulb.activated.active,
+        .music.activated.active,
+        .fan.activated.active {
             background: #dff0d8;
             border-color: #3c763d;
         }
 
+    .dummy.activated {
+        color: #515151;
+    }
 
 .active {
     color: green;
@@ -124,16 +137,6 @@ main {
 .switch.active.activated:before {
     content: "\e084";
 }
-
-/*AGREGATOR*/
-.agregator:after {
-    content: "Agregator";
-    left: 13px;
-}
-.agregator:before {
-    content: "\2a";
-}
-
 
 
 /*FAN*/
@@ -190,3 +193,14 @@ main {
 .bulb.active:before {
     content: "\e006";
 }
+
+
+/*DUMMY*/
+.dummy:after {
+    content: "Dummy";
+    left: 12px;
+}
+
+/*.dummy:before {
+    content: "\e017";
+}*/

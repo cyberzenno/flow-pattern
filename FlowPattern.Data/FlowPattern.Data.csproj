@@ -41,8 +41,10 @@
   <ItemGroup>
     <Compile Include="SystemParts\Factories\ISystemPartFactory.cs" />
     <Compile Include="SystemParts\Factories\SystemPartFactory.cs" />
+    <Compile Include="SystemParts\Private\Music.cs" />
     <Compile Include="SystemParts\Private\Flow.cs" />
     <Compile Include="SystemParts\Private\Bulb.cs" />
+    <Compile Include="SystemParts\Private\Dummy.cs" />
     <Compile Include="SystemParts\Private\Switch.cs" />
     <Compile Include="SystemParts\Private\Generator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -51,6 +53,7 @@
     <Compile Include="SystemParts\Private\UnknownPart.cs" />
     <Compile Include="System\Builders\SystemBuilder.cs" />
     <Compile Include="System\Persistence\ISystemPersistenceProvider.cs" />
+    <Compile Include="System\SystemContext.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
