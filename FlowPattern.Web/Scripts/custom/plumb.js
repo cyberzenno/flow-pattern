@@ -55,6 +55,7 @@ CyberzennoPlumb = function () {
 
             });
 
+            CyberzennoFlow().updateConnectors();
         }
 
     }

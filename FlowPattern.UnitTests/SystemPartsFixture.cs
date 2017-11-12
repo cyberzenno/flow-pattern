@@ -21,11 +21,11 @@ namespace FlowPattern.UnitTests
         }
 
         [Test]
-        [TestCase("0000", "0000")]
-        [TestCase("1111", "1111")]
-        [TestCase("1011", "1000")]
-        [TestCase("1101", "1100")]
-        [TestCase("1110", "1110")]
+        [TestCase("000", "0000")]
+        [TestCase("111", "1111")]
+        [TestCase("101", "1000")]
+        [TestCase("110", "1100")]
+        [TestCase("111", "1111")]
         public void SimpleSystem(string pseudoScenario, string expectedPseudoScenario)
         {
             //ARRANGE
@@ -42,7 +42,6 @@ namespace FlowPattern.UnitTests
             if (pseudoScenario[0] == '1') generator.Activate();
             if (pseudoScenario[1] == '1') switch0.Activate();
             if (pseudoScenario[2] == '1') switch1.Activate();
-            if (pseudoScenario[3] == '1') light.Activate();
 
             //ASSERT
             AssertIsActive(expectedPseudoScenario[0], generator);

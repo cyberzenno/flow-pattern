@@ -12,11 +12,21 @@
     <script src="~/Scripts/custom/plumb.js"></script>
 
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="#" rel="shortcut icon" type="image/x-icon" />
 
 </head>
-<body> @*oncontextmenu="return false;">*@
+<body>
+    @*oncontextmenu="return false;">*@
+
+    <div id="note">
+        <h3>The Flow Pattern experiment</h3>
+        Click to drag the elements around. <br />
+        Double click to activate or deactivate them.
+    </div>
 
     @RenderBody()
+
+
 
 </body>
 </html>

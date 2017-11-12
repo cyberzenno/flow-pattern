@@ -2,8 +2,10 @@
 //Settings to have the Flow Pattern working
 CyberzennoFlow = function (settings) {
 
+    var custom_event = $.support.touch ? "tap" : "dblclick";
+
     function bindClick() {
-        $("[data-system-part]").click(function (e) {
+        $("[data-system-part]").on(custom_event, function (e) {
             console.log(e.currentTarget.id)
             $.ajax({
 
@@ -22,7 +24,7 @@ CyberzennoFlow = function (settings) {
 
                         var color = item.ActiveCssClass == "active" && item.ActivatedCssClass == "activated" ? "green" : "gray";
 
-                        updateConnector(item.Id, null, color);
+                        updateConnector(item.Id, color);
 
                     }
 
@@ -46,28 +48,39 @@ CyberzennoFlow = function (settings) {
             if (outputs) {
                 for (var j = 0; j < outputs.length; j++) {
 
-                    var color = part.ActiveCssClass == "active" && part.ActivatedCssClass == "activated" ? "green" : "gray";
-                    updateConnector(part.id, outputs[j], color)
-   
+                    var color = $(part).hasClass("active") && $(part).hasClass("activated") ? "green" : "gray";
+                    updateConnector(part.id, color)
+
                 }
             }
 
         }
     }
 
-    function updateConnector(tId, sId, color) {
+    function updateConnector(sId, color) {
 
-        jsPlumb.select({ source: tId }).setPaintStyle({ stroke: color });
-        jsPlumb.selectEndpoints({ element: tId }).setPaintStyle({ fill: color });
-        //jsPlumb.selectEndpoints({ element: sId }).setPaintStyle({ fill: color });
+        jsPlumb.select({ source: sId }).setPaintStyle({ stroke: color });
+        var connections = jsPlumb.getConnections({ source: sId });
+
+        for (var c in connections) {
+
+            var connection = connections[c];
+            if (connection) {
+                for (var e in connection.endpoints) {
+                    connection.endpoints[e].setPaintStyle({ fill: color });
+                }
+            }
+
+        }
 
     }
 
     return {
         init: function () {
-
-            updateConnectors();
             bindClick();
+        },
+        updateConnectors: function () {
+            updateConnectors();
         }
     }
 }

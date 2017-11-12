@@ -30,6 +30,7 @@ namespace FlowPattern.Data.SystemParts
         public PartType SystemPartType { get; set; }
         public PartState SystemPartState { get; set; }
 
+
         public IList<ASystemPart> Input { get; set; }
         public IList<ASystemPart> Output { get; set; }
 

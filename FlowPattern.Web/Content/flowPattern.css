@@ -1,5 +1,4 @@
-﻿@@ -1,206 +0,0 @@
-﻿
+﻿@@ -1,206 +0,0 @@ ﻿
 /*MAIN SETTINGS*/
 * {
     margin: 0;
@@ -14,6 +13,21 @@ main {
     height: 100%;
 }
 
+#note {
+    position: absolute;
+    padding: 0 15px 15px 15px;
+    margin: 20px;
+    /* Border radius for Chrome, Webkit and other good browsers */
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -border-radius: 10px;
+    border-radius: 10px;
+    border: 1px solid #aaaaaa;
+    background-color: rgba(230,230,230,0.5);
+    color: #707070;
+    font-size: 20px;
+}
+
 /*BOARD ITEM*/
 .item_row {
     height: calc(100%/10);
@@ -23,7 +37,7 @@ main {
     float: left;
     width: calc(100%/10);
     height: 100%;
-    border: 1px solid lightgray;
+    border: 1px dashed #eeeeee;
 }
 
     .item_cell.selected {
@@ -69,26 +83,24 @@ main {
 
     .light.activated {
         background: #fcf8e3;
-        border-color: #8a6d3b;
     }
 
-        .light.activated.active{
+        .light.activated.active {
             background: #dff0d8;
-            border-color: #3c763d;
         }
 
 
-.active {
+.active,
+.active.activated {
     color: green;
+    border-color: green;
 }
 
 .activated {
-    color: orange;
+    color: #C87A11;
+    border-color: #C87A11;
 }
 
-.active.activated {
-    color: green;
-}
 
 /*AFTER STUFF*/
 #container ::after {

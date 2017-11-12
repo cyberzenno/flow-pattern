@@ -51,15 +51,27 @@ namespace FlowPattern.Web.Controllers
             var builder = new SystemBuilder(factory);
 
             var g = "generator_0";
-            var s = "switch_0";
-            var l = "light_0";
+            var s0 = "switch_0";
+            var s1 = "switch_1";
+            var l1 = "light_1";
+
+            var s2 = "switch_2";
+            var l2 = "light_2";
 
             builder.AddPart(g, "0_5");
-            builder.AddPart(s, "3_5");
-            builder.AddPart(l, "6_5");
+            builder.AddPart(s0, "2_5");
+            builder.AddPart(s1, "4_3");
+            builder.AddPart(l1, "6_3");
+            builder.AddPart(s2, "4_7");
+            builder.AddPart(l2, "6_7");
 
-            builder.ConnectParts(g + ">" + s);
-            builder.ConnectParts(s + ">" + l);
+            builder.ConnectParts(g + ">" + s0);
+            builder.ConnectParts(s0 + ">" + s1);
+            builder.ConnectParts(s0 + ">" + s2);
+
+            builder.ConnectParts(s1 + ">" + l1);
+            builder.ConnectParts(s2 + ">" + l2);
+
 
             return builder.SystemParts;
         }
