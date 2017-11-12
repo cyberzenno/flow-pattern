@@ -1,7 +1,9 @@
-﻿CyberzennoFlow = function (settings) {
+﻿/// <reference path="../jquery-3.1.1.intellisense.js" />
+//Settings to have the Flow Pattern working
+CyberzennoFlow = function (settings) {
 
     function bindClick() {
-        $("[data-system-part]").contextmenu(function (e) {
+        $("[data-system-part]").click(function (e) {
             console.log(e.currentTarget.id)
             $.ajax({
 

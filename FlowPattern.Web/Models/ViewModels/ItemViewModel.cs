@@ -14,10 +14,6 @@ namespace FlowPattern.Web.Models.ViewModels
         public string ActivatedCssClass { get; set; }
         public int X { get; set; }
         public int Y { get; set; }
-        public void XY(int x, int y)
-        {
-            X = x; Y = y;
-        }
 
         public string OutputConnections { get; set; }
     }
@@ -28,8 +24,8 @@ namespace FlowPattern.Web.Models.ViewModels
         {
             var viewModel = new ItemViewModel();
             viewModel.Id = part.Id;
-            viewModel.X = part.X;
-            viewModel.Y = part.Y;
+            viewModel.X = int.Parse(part.Attributes["x"]);
+            viewModel.Y = int.Parse(part.Attributes["y"]);
             viewModel.MainCssClass = part.GetViewPartType();
             viewModel.ActiveCssClass = part.IsActive ? "active" : "";
             viewModel.ActivatedCssClass = part.IsActivated ? "activated" : "";

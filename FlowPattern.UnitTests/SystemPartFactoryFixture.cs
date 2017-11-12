@@ -24,7 +24,7 @@ namespace FlowPattern.UnitTests
         [TestCase("foo_0", "Unknown", PartType.Unknown, PartState.Unknown)]
         [TestCase("generator_0", "generator_0", PartType.Generator, PartState.NotActivated)]
         [TestCase("SWITCH_0", "SWITCH_0", PartType.Switch, PartState.NotActivated)]
-        [TestCase("bulb_0", "bulb_0", PartType.Bulb, PartState.NotActivated)]
+        [TestCase("light_0", "light_0", PartType.Light, PartState.NotActivated)]
         public void Create(string input, string expId, PartType expType, PartState expState)
         {
             //ARRANGE

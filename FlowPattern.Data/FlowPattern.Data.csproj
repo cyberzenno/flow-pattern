@@ -41,10 +41,8 @@
   <ItemGroup>
     <Compile Include="SystemParts\Factories\ISystemPartFactory.cs" />
     <Compile Include="SystemParts\Factories\SystemPartFactory.cs" />
-    <Compile Include="SystemParts\Private\Music.cs" />
     <Compile Include="SystemParts\Private\Flow.cs" />
-    <Compile Include="SystemParts\Private\Bulb.cs" />
-    <Compile Include="SystemParts\Private\Dummy.cs" />
+    <Compile Include="SystemParts\Private\Light.cs" />
     <Compile Include="SystemParts\Private\Switch.cs" />
     <Compile Include="SystemParts\Private\Generator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

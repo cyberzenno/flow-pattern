@@ -28,7 +28,7 @@ namespace FlowPattern.UnitTests
             //ARRANGE
             var x = "generator_x";
             var y = "switch_y";
-            var z = "bulb_z";
+            var z = "light_z";
 
             systemBuilder.AddPart(x);
             systemBuilder.AddPart(y);
@@ -40,7 +40,7 @@ namespace FlowPattern.UnitTests
 
             var generator_x = systemBuilder.GetById(x);
             var switch_y = systemBuilder.GetById(y);
-            var bulb_z = systemBuilder.GetById(z);
+            var light_z = systemBuilder.GetById(z);
 
             //ASSERT
 
@@ -57,10 +57,10 @@ namespace FlowPattern.UnitTests
             Assert.AreEqual(z, switch_y.Output[0].Id);
 
             //z input from y
-            Assert.AreEqual(y, bulb_z.Input[0].Id);
+            Assert.AreEqual(y, light_z.Input[0].Id);
 
             //z output to none
-            Assert.AreEqual(0, bulb_z.Output.Count);
+            Assert.AreEqual(0, light_z.Output.Count);
 
         }
     }

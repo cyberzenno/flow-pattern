@@ -32,23 +32,23 @@ namespace FlowPattern.UnitTests
             var generator = systemPartFactory.Create("generator_0");
             var switch0 = systemPartFactory.Create("switch_0");
             var switch1 = systemPartFactory.Create("switch_1");
-            var bulb = systemPartFactory.Create("bulb_0");
+            var light = systemPartFactory.Create("light_0");
 
             switch0.Input.Add(generator);
             switch1.Input.Add(switch0);
-            bulb.Input.Add(switch1);
+            light.Input.Add(switch1);
 
             //ACT
             if (pseudoScenario[0] == '1') generator.Activate();
             if (pseudoScenario[1] == '1') switch0.Activate();
             if (pseudoScenario[2] == '1') switch1.Activate();
-            if (pseudoScenario[3] == '1') bulb.Activate();
+            if (pseudoScenario[3] == '1') light.Activate();
 
             //ASSERT
             AssertIsActive(expectedPseudoScenario[0], generator);
             AssertIsActive(expectedPseudoScenario[1], switch0);
             AssertIsActive(expectedPseudoScenario[2], switch1);
-            AssertIsActive(expectedPseudoScenario[3], bulb);
+            AssertIsActive(expectedPseudoScenario[3], light);
         }
 
         private void AssertIsActive(char c, ASystemPart part)

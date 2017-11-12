@@ -1,4 +1,5 @@
-﻿CyberzennoPlumb = function () {
+﻿//Settings to have jsPlumb working
+CyberzennoPlumb = function () {
 
     var allSystemParts = $("[data-system-part]");
 

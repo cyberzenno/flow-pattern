@@ -10,20 +10,4 @@ namespace FlowPattern.Data.SystemParts.Private
     class Flow : AFlow
     {
     }
-
-    class NullFlow : AFlow
-    {
-        private NullFlow() { }
-        private static NullFlow flow;
-
-        public static NullFlow Get()
-        {
-            if (flow == null)
-            {
-                flow = new NullFlow();
-            }
-
-            return flow;
-        }
-    }
 }

@@ -32,8 +32,8 @@ namespace FlowPattern.Data.System.Builders
 
             var args = x_y.Split('_');
 
-            part.X = int.Parse(args[0]);
-            part.Y = int.Parse(args[1]);
+            part.Attributes.Add("x", args[0]);
+            part.Attributes.Add("y", args[1]);
 
             SystemParts.Add(part);
         }

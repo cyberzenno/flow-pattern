@@ -1,3 +1,4 @@
+﻿@@ -1,206 +0,0 @@
 ﻿
 /*MAIN SETTINGS*/
 * {
@@ -44,11 +45,7 @@ main {
 /*FLOW ELEMENTS*/
 .generator,
 .switch,
-.bulb,
-.music,
-.fan,
-.agregator,
-.dummy {
+.light {
     height: 80px;
     width: 100px;
     text-align: center;
@@ -70,23 +67,16 @@ main {
         color: #a94442;
     }
 
-    .bulb.activated,
-    .music.activated,
-    .fan.activated {
+    .light.activated {
         background: #fcf8e3;
         border-color: #8a6d3b;
     }
 
-        .bulb.activated.active,
-        .music.activated.active,
-        .fan.activated.active {
+        .light.activated.active{
             background: #dff0d8;
             border-color: #3c763d;
         }
 
-    .dummy.activated {
-        color: #515151;
-    }
 
 .active {
     color: green;
@@ -139,68 +129,20 @@ main {
 }
 
 
-/*FAN*/
-.fan:after {
-    content: "Fan";
-    left: 32px;
-}
-
-.fan:before {
-    content: "\e090";
-}
-
-.fan.activated:before {
-    content: "\e090";
-}
-
-.fan.active:before {
-    content: "\e031";
-}
-
-/*MUSIC*/
-.music:after {
-    content: "Music";
-    left: 32px;
-}
-
-.music:before {
-    content: "\e036";
-}
-
-.music.activated:before {
-    content: "\e036";
-}
-
-.music.active:before {
-    content: "\e038";
-}
-
-
-/*BULB*/
-.bulb:after {
+/*LIGHT*/
+.light:after {
     content: "Light";
     left: 32px;
 }
 
-.bulb:before {
+.light:before {
     content: "\e007";
 }
 
-.bulb.activated:before {
+.light.activated:before {
     content: "\e007";
 }
 
-.bulb.active:before {
+.light.active:before {
     content: "\e006";
 }
-
-
-/*DUMMY*/
-.dummy:after {
-    content: "Dummy";
-    left: 12px;
-}
-
-/*.dummy:before {
-    content: "\e017";
-}*/

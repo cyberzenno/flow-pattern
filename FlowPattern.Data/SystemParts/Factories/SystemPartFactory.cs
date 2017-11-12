@@ -54,9 +54,9 @@ namespace FlowPattern.Data.SystemParts.Factories
 
                     break;
 
-                case PartType.Bulb:
+                case PartType.Light:
 
-                    result = new Bulb
+                    result = new Light
                     {
                         Id = id,
                         SystemPartType = type,
@@ -64,35 +64,10 @@ namespace FlowPattern.Data.SystemParts.Factories
                     };
 
                     break;
-
-                case PartType.Music:
-
-                    result = new Music
-                    {
-                        Id = id,
-                        SystemPartType = type,
-                        SystemPartState = state
-                    };
-
-                    break;
-
-                case PartType.Dummy:
-
-                    result = new Dummy
-                    {
-                        Id = id,
-                        SystemPartType = type,
-                        SystemPartState = PartState.Activated
-                    };
-
-                    break;
-
             }
 
             return result;
         }
-
-
 
     }
 }

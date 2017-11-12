@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FlowPattern.Data.SystemParts.Private
 {
-    class Music : ASystemPart
+    class Light : ASystemPart
     {
         public override AFlow Flow
         {
