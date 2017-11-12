@@ -12,9 +12,7 @@ namespace FlowPattern.Data.SystemParts
 
         Generator,
         Switch,
-        Bulb,
-        Dummy,
-        Music
+        Light
     }
 
     public enum PartState
@@ -35,10 +33,7 @@ namespace FlowPattern.Data.SystemParts
         public IList<ASystemPart> Input { get; set; }
         public IList<ASystemPart> Output { get; set; }
 
-        //todo: move this shit out
-        //in order to avoid OOP purists to scream out loud
-        public int X { get; set; }
-        public int Y { get; set; }
+        public Dictionary<string, string> Attributes { get; set; }
 
         //Abstract Properties
         public abstract AFlow Flow { get; }
@@ -48,6 +43,7 @@ namespace FlowPattern.Data.SystemParts
         {
             Input = new List<ASystemPart>();
             Output = new List<ASystemPart>();
+            Attributes = new Dictionary<string, string>();
         }
 
         //Actions
